@@ -1,0 +1,91 @@
+I, [2024-08-31T10:51:56.207411 #76011]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
+D, [2024-08-31T10:51:56.207509 #76011] DEBUG -- : {
+  "description": "A request to get chat data",
+  "providerState": "Chat data of fullserve consumer exists",
+  "request": {
+    "method": "GET",
+    "path": "/actions/bcd/chat-template",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "json_class": "Pact::SomethingLike",
+      "contents": {
+        "data": {
+          "type": "ChatTemplate",
+          "attributes": {
+            "templates": [
+              {
+                "id": "1",
+                "consumer": "fullserve",
+                "title": "title1",
+                "category": "category1",
+                "message": "message1",
+                "queues": [
+                  "queue1",
+                  "queue2"
+                ],
+                "recordDisabled": false
+              },
+              {
+                "id": "2",
+                "consumer": "fullserve",
+                "title": "title2",
+                "category": "category2",
+                "message": "message2",
+                "queues": [
+                  "queue3",
+                  "queue4"
+                ],
+                "recordDisabled": false
+              },
+              {
+                "id": "3",
+                "consumer": "fullserve",
+                "title": "title3",
+                "category": "category3",
+                "message": "message3",
+                "queues": [
+                  "queue5"
+                ],
+                "recordDisabled": false
+              },
+              {
+                "id": "4",
+                "consumer": "fullserve",
+                "title": "title4",
+                "category": "category4",
+                "message": "message4",
+                "queues": [
+                  "queue6",
+                  "queue7",
+                  "queue8"
+                ],
+                "recordDisabled": false
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "metadata": null
+}
+W, [2024-08-31T10:51:56.208456 #76011]  WARN -- : Verifying - actual interactions do not match expected interactions. 
+Missing requests:
+	GET /actions/bcd/chat-template
+
+
+
+W, [2024-08-31T10:51:56.208486 #76011]  WARN -- : Missing requests:
+	GET /actions/bcd/chat-template
+
+
+
+I, [2024-08-31T10:51:56.208827 #76011]  INFO -- : Cleared interactions
