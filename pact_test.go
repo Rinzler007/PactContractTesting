@@ -74,8 +74,8 @@ var logDir = fmt.Sprintf("%s/logs", dir)
 func TestMain(m *testing.M) {
 	// Setup Pact and related test stuff
 	pact = dsl.Pact{
-		Consumer:                 "GoConsumerContractTesting",
-		Provider:                 "GoProviderContractTesting",
+		Consumer:                 "toolbar-chat-api",
+		Provider:                 "unv-bcd-chat-pdr",
 		DisableToolValidityCheck: true,
 		PactDir:                  pactDir,
 		LogDir:                   logDir,
@@ -125,7 +125,7 @@ func TestConsumerPact(t *testing.T) {
 	// Store contract remotely
 	publisher := dsl.Publisher{}
 	err = publisher.Publish(types.PublishRequest{
-		PactURLs:        []string{"pacts/goconsumercontracttesting-goprovidercontracttesting.json"},
+		PactURLs:        []string{"pacts/toolbar-chat-api-unv-bcd-chat-pdr.json"},
 		PactBroker:      "https://harsh.pactflow.io/", //link to your remote Contract broker
 		BrokerToken:     "2_KfMXbOMRXKAd30PwopTg",     //your PactFlow token
 		ConsumerVersion: "1.0.0",

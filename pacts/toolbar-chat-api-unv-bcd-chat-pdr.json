@@ -1,9 +1,9 @@
 {
   "consumer": {
-    "name": "GoConsumerContractTesting"
+    "name": "toolbar-chat-api"
   },
   "provider": {
-    "name": "GoProviderContractTesting"
+    "name": "unv-bcd-chat-pdr"
   },
   "interactions": [
     {
