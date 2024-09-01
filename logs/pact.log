@@ -1,91 +1,185 @@
-I, [2024-08-31T10:51:56.207411 #76011]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
-D, [2024-08-31T10:51:56.207509 #76011] DEBUG -- : {
+I, [2024-09-01T11:42:07.935455 #32902]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
+D, [2024-09-01T11:42:07.935585 #32902] DEBUG -- : {
   "description": "A request to get chat data",
   "providerState": "Chat data of fullserve consumer exists",
   "request": {
     "method": "GET",
-    "path": "/actions/bcd/chat-template",
-    "headers": {
-      "Content-Type": "application/json"
-    }
-  },
-  "response": {
-    "status": 200,
-    "headers": {
-      "Content-Type": "application/json"
+    "path": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "/actions/bcd/chat-template",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "/actions/bcd/chat-template"
+        }
+      }
     },
-    "body": {
-      "json_class": "Pact::SomethingLike",
-      "contents": {
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
         "data": {
-          "type": "ChatTemplate",
-          "attributes": {
-            "templates": [
-              {
-                "id": "1",
-                "consumer": "fullserve",
-                "title": "title1",
-                "category": "category1",
-                "message": "message1",
-                "queues": [
-                  "queue1",
-                  "queue2"
-                ],
-                "recordDisabled": false
-              },
-              {
-                "id": "2",
-                "consumer": "fullserve",
-                "title": "title2",
-                "category": "category2",
-                "message": "message2",
-                "queues": [
-                  "queue3",
-                  "queue4"
-                ],
-                "recordDisabled": false
-              },
-              {
-                "id": "3",
-                "consumer": "fullserve",
-                "title": "title3",
-                "category": "category3",
-                "message": "message3",
-                "queues": [
-                  "queue5"
-                ],
-                "recordDisabled": false
-              },
-              {
-                "id": "4",
-                "consumer": "fullserve",
-                "title": "title4",
-                "category": "category4",
-                "message": "message4",
-                "queues": [
-                  "queue6",
-                  "queue7",
-                  "queue8"
-                ],
-                "recordDisabled": false
-              }
-            ]
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json"
           }
         }
       }
     }
   },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json"
+          }
+        }
+      }
+    },
+    "body": {
+      "templates": [
+        {
+          "id": "1",
+          "consumer": "fullserve",
+          "title": "title1",
+          "category": "category1",
+          "message": "message1",
+          "queues": [
+            "queue1",
+            "queue2"
+          ],
+          "recordDisabled": false
+        },
+        {
+          "id": "2",
+          "consumer": "fullserve",
+          "title": "title2",
+          "category": "category2",
+          "message": "message2",
+          "queues": [
+            "queue3",
+            "queue4"
+          ],
+          "recordDisabled": false
+        },
+        {
+          "id": "3",
+          "consumer": "fullserve",
+          "title": "title3",
+          "category": "category3",
+          "message": "message3",
+          "queues": [
+            "queue5"
+          ],
+          "recordDisabled": false
+        },
+        {
+          "id": "4",
+          "consumer": "fullserve",
+          "title": "title4",
+          "category": "category4",
+          "message": "message4",
+          "queues": [
+            "queue6",
+            "queue7",
+            "queue8"
+          ],
+          "recordDisabled": false
+        }
+      ]
+    }
+  },
   "metadata": null
 }
-W, [2024-08-31T10:51:56.208456 #76011]  WARN -- : Verifying - actual interactions do not match expected interactions. 
-Missing requests:
-	GET /actions/bcd/chat-template
-
-
-
-W, [2024-08-31T10:51:56.208486 #76011]  WARN -- : Missing requests:
-	GET /actions/bcd/chat-template
-
-
-
-I, [2024-08-31T10:51:56.208827 #76011]  INFO -- : Cleared interactions
+I, [2024-09-01T11:42:07.936157 #32902]  INFO -- : Received request GET /actions/bcd/chat-template
+D, [2024-09-01T11:42:07.936208 #32902] DEBUG -- : {
+  "path": "/actions/bcd/chat-template",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Content-Type": "application/json",
+    "Host": "localhost:52549",
+    "User-Agent": "Go-http-client/1.1",
+    "Accept-Encoding": "gzip"
+  }
+}
+I, [2024-09-01T11:42:07.936324 #32902]  INFO -- : Found matching response for GET /actions/bcd/chat-template
+D, [2024-09-01T11:42:07.936370 #32902] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "application/json; charset=utf-8",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "application\\/json"
+        }
+      }
+    }
+  },
+  "body": {
+    "templates": [
+      {
+        "id": "1",
+        "consumer": "fullserve",
+        "title": "title1",
+        "category": "category1",
+        "message": "message1",
+        "queues": [
+          "queue1",
+          "queue2"
+        ],
+        "recordDisabled": false
+      },
+      {
+        "id": "2",
+        "consumer": "fullserve",
+        "title": "title2",
+        "category": "category2",
+        "message": "message2",
+        "queues": [
+          "queue3",
+          "queue4"
+        ],
+        "recordDisabled": false
+      },
+      {
+        "id": "3",
+        "consumer": "fullserve",
+        "title": "title3",
+        "category": "category3",
+        "message": "message3",
+        "queues": [
+          "queue5"
+        ],
+        "recordDisabled": false
+      },
+      {
+        "id": "4",
+        "consumer": "fullserve",
+        "title": "title4",
+        "category": "category4",
+        "message": "message4",
+        "queues": [
+          "queue6",
+          "queue7",
+          "queue8"
+        ],
+        "recordDisabled": false
+      }
+    ]
+  }
+}
+I, [2024-09-01T11:42:07.937274 #32902]  INFO -- : Verifying - interactions matched
+I, [2024-09-01T11:42:07.937650 #32902]  INFO -- : Cleared interactions
+I, [2024-09-01T11:42:09.025660 #32902]  INFO -- : Writing pact for GoProviderContractTesting to /Users/harshdas/Desktop/Rinzler/Projects/GoConsumerContractTesting/pacts/goconsumercontracttesting-goprovidercontracttesting.json

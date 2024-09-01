@@ -20,6 +20,7 @@ require (
 )
 
 require (
+	github.com/google/martian v2.1.0+incompatible
 	github.com/hashicorp/go-version v1.7.0 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/pact-foundation/pact-go/v2 v2.0.7

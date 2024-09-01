@@ -1,0 +1,100 @@
+{
+  "consumer": {
+    "name": "GoConsumerContractTesting"
+  },
+  "provider": {
+    "name": "GoProviderContractTesting"
+  },
+  "interactions": [
+    {
+      "description": "A request to get chat data",
+      "providerState": "Chat data of fullserve consumer exists",
+      "request": {
+        "method": "GET",
+        "path": "/actions/bcd/chat-template",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "$.path": {
+            "match": "regex",
+            "regex": "\\/actions\\/bcd\\/chat-template"
+          },
+          "$.headers.Content-Type": {
+            "match": "regex",
+            "regex": "application\\/json"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "templates": [
+            {
+              "id": "1",
+              "consumer": "fullserve",
+              "title": "title1",
+              "category": "category1",
+              "message": "message1",
+              "queues": [
+                "queue1",
+                "queue2"
+              ],
+              "recordDisabled": false
+            },
+            {
+              "id": "2",
+              "consumer": "fullserve",
+              "title": "title2",
+              "category": "category2",
+              "message": "message2",
+              "queues": [
+                "queue3",
+                "queue4"
+              ],
+              "recordDisabled": false
+            },
+            {
+              "id": "3",
+              "consumer": "fullserve",
+              "title": "title3",
+              "category": "category3",
+              "message": "message3",
+              "queues": [
+                "queue5"
+              ],
+              "recordDisabled": false
+            },
+            {
+              "id": "4",
+              "consumer": "fullserve",
+              "title": "title4",
+              "category": "category4",
+              "message": "message4",
+              "queues": [
+                "queue6",
+                "queue7",
+                "queue8"
+              ],
+              "recordDisabled": false
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.headers.Content-Type": {
+            "match": "regex",
+            "regex": "application\\/json"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
