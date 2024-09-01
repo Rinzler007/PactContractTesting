@@ -106,13 +106,13 @@ func TestConsumerPact(t *testing.T) {
 			Method: "GET",
 			Path:   dsl.Term("/actions/bcd/chat-template", "/actions/bcd/chat-template"),
 			Headers: dsl.MapMatcher{
-				"Content-Type": dsl.Term("application/json; charset=utf-8", `application\/json`),
+				"Content-Type": dsl.Term("application/json", `application\/json`),
 			},
 		}).
 		WillRespondWith(dsl.Response{
 			Status: 200,
 			Headers: dsl.MapMatcher{
-				"Content-Type": dsl.Term("application/json; charset=utf-8", `application\/json`),
+				"Content-Type": dsl.Term("application/json", `application\/json`),
 			},
 			Body: chatData,
 		})

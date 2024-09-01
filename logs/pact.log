@@ -1,5 +1,5 @@
-I, [2024-09-01T12:09:37.084292 #37471]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
-D, [2024-09-01T12:09:37.084433 #37471] DEBUG -- : {
+I, [2024-09-01T12:53:37.892981 #62714]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
+D, [2024-09-01T12:53:37.893093 #62714] DEBUG -- : {
   "description": "A request to get chat data",
   "providerState": "Chat data of fullserve consumer exists",
   "request": {
@@ -19,7 +19,7 @@ D, [2024-09-01T12:09:37.084433 #37471] DEBUG -- : {
       "Content-Type": {
         "json_class": "Pact::Term",
         "data": {
-          "generate": "application/json; charset=utf-8",
+          "generate": "application/json",
           "matcher": {
             "json_class": "Regexp",
             "o": 0,
@@ -35,7 +35,7 @@ D, [2024-09-01T12:09:37.084433 #37471] DEBUG -- : {
       "Content-Type": {
         "json_class": "Pact::Term",
         "data": {
-          "generate": "application/json; charset=utf-8",
+          "generate": "application/json",
           "matcher": {
             "json_class": "Regexp",
             "o": 0,
@@ -104,26 +104,26 @@ D, [2024-09-01T12:09:37.084433 #37471] DEBUG -- : {
   },
   "metadata": null
 }
-I, [2024-09-01T12:09:37.084954 #37471]  INFO -- : Received request GET /actions/bcd/chat-template
-D, [2024-09-01T12:09:37.085005 #37471] DEBUG -- : {
+I, [2024-09-01T12:53:37.893522 #62714]  INFO -- : Received request GET /actions/bcd/chat-template
+D, [2024-09-01T12:53:37.893554 #62714] DEBUG -- : {
   "path": "/actions/bcd/chat-template",
   "query": "",
   "method": "get",
   "headers": {
     "Content-Type": "application/json",
-    "Host": "localhost:56795",
+    "Host": "localhost:63484",
     "User-Agent": "Go-http-client/1.1",
     "Accept-Encoding": "gzip"
   }
 }
-I, [2024-09-01T12:09:37.085118 #37471]  INFO -- : Found matching response for GET /actions/bcd/chat-template
-D, [2024-09-01T12:09:37.085167 #37471] DEBUG -- : {
+I, [2024-09-01T12:53:37.893637 #62714]  INFO -- : Found matching response for GET /actions/bcd/chat-template
+D, [2024-09-01T12:53:37.893672 #62714] DEBUG -- : {
   "status": 200,
   "headers": {
     "Content-Type": {
       "json_class": "Pact::Term",
       "data": {
-        "generate": "application/json; charset=utf-8",
+        "generate": "application/json",
         "matcher": {
           "json_class": "Regexp",
           "o": 0,
@@ -190,6 +190,6 @@ D, [2024-09-01T12:09:37.085167 #37471] DEBUG -- : {
     }
   }
 }
-I, [2024-09-01T12:09:37.086095 #37471]  INFO -- : Verifying - interactions matched
-I, [2024-09-01T12:09:37.086487 #37471]  INFO -- : Cleared interactions
-I, [2024-09-01T12:09:38.366166 #37471]  INFO -- : Writing pact for GoProviderContractTesting to /Users/harshdas/Desktop/Rinzler/Projects/GoConsumerContractTesting/pacts/goconsumercontracttesting-goprovidercontracttesting.json
+I, [2024-09-01T12:53:37.894489 #62714]  INFO -- : Verifying - interactions matched
+I, [2024-09-01T12:53:37.894832 #62714]  INFO -- : Cleared interactions
+I, [2024-09-01T12:53:38.845521 #62714]  INFO -- : Writing pact for GoProviderContractTesting to /Users/harshdas/Desktop/Rinzler/Projects/GoConsumerContractTesting/pacts/goconsumercontracttesting-goprovidercontracttesting.json

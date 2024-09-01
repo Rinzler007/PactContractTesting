@@ -13,7 +13,7 @@
         "method": "GET",
         "path": "/actions/bcd/chat-template",
         "headers": {
-          "Content-Type": "application/json; charset=utf-8"
+          "Content-Type": "application/json"
         },
         "matchingRules": {
           "$.path": {
@@ -29,7 +29,7 @@
       "response": {
         "status": 200,
         "headers": {
-          "Content-Type": "application/json; charset=utf-8"
+          "Content-Type": "application/json"
         },
         "body": {
           "data": {
