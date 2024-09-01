@@ -12,40 +12,45 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func GetChatData() ProducerResponseAttributes {
-	return ProducerResponseAttributes{
-		ProducerChatTemplates: []ProducerChatTemplate{
-			{
-				Id:       "1",
-				Consumer: "fullserve",
-				Title:    "title1",
-				Category: "category1",
-				Message:  "message1",
-				Queues:   []string{"queue1", "queue2"},
-			},
-			{
-				Id:       "2",
-				Consumer: "fullserve",
-				Title:    "title2",
-				Category: "category2",
-				Message:  "message2",
-				Queues:   []string{"queue3", "queue4"},
-			},
-			{
-				Id:       "3",
-				Consumer: "fullserve",
-				Title:    "title3",
-				Category: "category3",
-				Message:  "message3",
-				Queues:   []string{"queue5"},
-			},
-			{
-				Id:       "4",
-				Consumer: "fullserve",
-				Title:    "title4",
-				Category: "category4",
-				Message:  "message4",
-				Queues:   []string{"queue6", "queue7", "queue8"},
+func GetChatData() ProducerResponseWrapper {
+	return ProducerResponseWrapper{
+		Data: ProducerResponseData{
+			Type: "ChatTemplate",
+			Attributes: ProducerResponseAttributes{
+				ProducerChatTemplates: []ProducerChatTemplate{
+					{
+						Id:       "1",
+						Consumer: "fullserve",
+						Title:    "title1",
+						Category: "category1",
+						Message:  "message1",
+						Queues:   []string{"queue1", "queue2"},
+					},
+					{
+						Id:       "2",
+						Consumer: "fullserve",
+						Title:    "title2",
+						Category: "category2",
+						Message:  "message2",
+						Queues:   []string{"queue3", "queue4"},
+					},
+					{
+						Id:       "3",
+						Consumer: "fullserve",
+						Title:    "title3",
+						Category: "category3",
+						Message:  "message3",
+						Queues:   []string{"queue5"},
+					},
+					{
+						Id:       "4",
+						Consumer: "fullserve",
+						Title:    "title4",
+						Category: "category4",
+						Message:  "message4",
+						Queues:   []string{"queue6", "queue7", "queue8"},
+					},
+				},
 			},
 		},
 	}
