@@ -1,5 +1,5 @@
-I, [2024-09-01T12:53:37.892981 #62714]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
-D, [2024-09-01T12:53:37.893093 #62714] DEBUG -- : {
+I, [2024-09-01T13:18:55.643959 #76550]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
+D, [2024-09-01T13:18:55.644083 #76550] DEBUG -- : {
   "description": "A request to get chat data",
   "providerState": "Chat data of fullserve consumer exists",
   "request": {
@@ -104,20 +104,20 @@ D, [2024-09-01T12:53:37.893093 #62714] DEBUG -- : {
   },
   "metadata": null
 }
-I, [2024-09-01T12:53:37.893522 #62714]  INFO -- : Received request GET /actions/bcd/chat-template
-D, [2024-09-01T12:53:37.893554 #62714] DEBUG -- : {
+I, [2024-09-01T13:18:55.644637 #76550]  INFO -- : Received request GET /actions/bcd/chat-template
+D, [2024-09-01T13:18:55.644684 #76550] DEBUG -- : {
   "path": "/actions/bcd/chat-template",
   "query": "",
   "method": "get",
   "headers": {
     "Content-Type": "application/json",
-    "Host": "localhost:63484",
+    "Host": "localhost:60195",
     "User-Agent": "Go-http-client/1.1",
     "Accept-Encoding": "gzip"
   }
 }
-I, [2024-09-01T12:53:37.893637 #62714]  INFO -- : Found matching response for GET /actions/bcd/chat-template
-D, [2024-09-01T12:53:37.893672 #62714] DEBUG -- : {
+I, [2024-09-01T13:18:55.644800 #76550]  INFO -- : Found matching response for GET /actions/bcd/chat-template
+D, [2024-09-01T13:18:55.644845 #76550] DEBUG -- : {
   "status": 200,
   "headers": {
     "Content-Type": {
@@ -190,6 +190,6 @@ D, [2024-09-01T12:53:37.893672 #62714] DEBUG -- : {
     }
   }
 }
-I, [2024-09-01T12:53:37.894489 #62714]  INFO -- : Verifying - interactions matched
-I, [2024-09-01T12:53:37.894832 #62714]  INFO -- : Cleared interactions
-I, [2024-09-01T12:53:38.845521 #62714]  INFO -- : Writing pact for GoProviderContractTesting to /Users/harshdas/Desktop/Rinzler/Projects/GoConsumerContractTesting/pacts/goconsumercontracttesting-goprovidercontracttesting.json
+I, [2024-09-01T13:18:55.645859 #76550]  INFO -- : Verifying - interactions matched
+I, [2024-09-01T13:18:55.646294 #76550]  INFO -- : Cleared interactions
+I, [2024-09-01T13:18:56.784874 #76550]  INFO -- : Writing pact for GoProviderContractTesting to /Users/harshdas/Desktop/Rinzler/Projects/GoConsumerContractTesting/pacts/goconsumercontracttesting-goprovidercontracttesting.json
