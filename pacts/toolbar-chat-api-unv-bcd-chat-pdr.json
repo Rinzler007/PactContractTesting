@@ -10,26 +10,12 @@
       "description": "A request to get chat data",
       "providerState": "Chat data of fullserve consumer exists",
       "request": {
-        "method": "GET",
-        "path": "/actions/bcd/chat-template",
-        "headers": {
-          "Content-Type": "application/json"
-        },
-        "matchingRules": {
-          "$.path": {
-            "match": "regex",
-            "regex": "\\/actions\\/bcd\\/chat-template"
-          },
-          "$.headers.Content-Type": {
-            "match": "regex",
-            "regex": "application\\/json"
-          }
-        }
+        "method": "get",
+        "path": "/actions/bcd/chat-template"
       },
       "response": {
         "status": 200,
         "headers": {
-          "Content-Type": "application/json"
         },
         "body": {
           "data": {
@@ -45,8 +31,7 @@
                   "queues": [
                     "queue1",
                     "queue2"
-                  ],
-                  "recordDisabled": false
+                  ]
                 },
                 {
                   "id": "2",
@@ -57,41 +42,10 @@
                   "queues": [
                     "queue3",
                     "queue4"
-                  ],
-                  "recordDisabled": false
-                },
-                {
-                  "id": "3",
-                  "consumer": "fullserve",
-                  "title": "title3",
-                  "category": "category3",
-                  "message": "message3",
-                  "queues": [
-                    "queue5"
-                  ],
-                  "recordDisabled": false
-                },
-                {
-                  "id": "4",
-                  "consumer": "fullserve",
-                  "title": "title4",
-                  "category": "category4",
-                  "message": "message4",
-                  "queues": [
-                    "queue6",
-                    "queue7",
-                    "queue8"
-                  ],
-                  "recordDisabled": false
+                  ]
                 }
               ]
             }
-          }
-        },
-        "matchingRules": {
-          "$.headers.Content-Type": {
-            "match": "regex",
-            "regex": "application\\/json"
           }
         }
       }
