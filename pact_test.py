@@ -2,9 +2,11 @@ import atexit
 import unittest
 from pact import Consumer, Provider
 import requests
+import os
 
+os.environ['NO_PROXY']='localhost,127.0.0.1'
 # Define Pact between the Consumer and Provider
-pact = Consumer('toolbar-chat-api').has_pact_with(Provider('unv-bcd-chat-pdr'), pact_dir='./pacts')
+pact = Consumer('toolbar-chat-api').has_pact_with(Provider('unv-bcd-chat-pdr'), pact_dir='./pacts', port=1235)
 pact.start_service()
 atexit.register(pact.stop_service)  # Ensure service is stopped at exit
 
