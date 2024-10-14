@@ -7,11 +7,12 @@
   },
   "interactions": [
     {
-      "description": "A request to get chat data",
+      "description": "A request to get chat data for fullserve",
       "providerState": "Chat data of fullserve consumer exists",
       "request": {
-        "method": "get",
-        "path": "/actions/bcd/chat-template"
+        "method": "GET",
+        "path": "/actions/bcd/chat-template",
+        "query": "consumer=fullserve"
       },
       "response": {
         "status": 200,
@@ -23,29 +24,181 @@
             "attributes": {
               "templates": [
                 {
-                  "id": "1",
-                  "consumer": "fullserve",
-                  "title": "title1",
-                  "category": "category1",
-                  "message": "message1",
-                  "queues": [
-                    "queue1",
-                    "queue2"
-                  ]
-                },
-                {
                   "id": "2",
                   "consumer": "fullserve",
                   "title": "title2",
                   "category": "category2",
                   "message": "message2",
                   "queues": [
-                    "queue3",
+                    "queue3"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "matchingRules": {
+          "$.body.data.attributes.templates": {
+            "min": 1
+          },
+          "$.body.data.attributes.templates[*].*": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].id": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].title": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].category": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].message": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].queues": {
+            "min": 1
+          },
+          "$.body.data.attributes.templates[*].queues[*].*": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "A request to get chat data for an invalid consumer",
+      "providerState": "Chat data of invalid consumer exists",
+      "request": {
+        "method": "GET",
+        "path": "/actions/bcd/chat-template",
+        "query": "consumer=invalid"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        },
+        "body": {
+          "error": {
+            "code": 404,
+            "message": "Consumer not found."
+          }
+        }
+      }
+    },
+    {
+      "description": "A request to get chat data for salesforce",
+      "providerState": "Chat data of salesforce consumer exists",
+      "request": {
+        "method": "GET",
+        "path": "/actions/bcd/chat-template",
+        "query": "consumer=salesforce"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "data": {
+            "type": "ChatTemplate",
+            "attributes": {
+              "templates": [
+                {
+                  "id": "4",
+                  "consumer": "salesforce",
+                  "title": "title4",
+                  "category": "category4",
+                  "message": "message4",
+                  "queues": [
+                    "queue5"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "matchingRules": {
+          "$.body.data.attributes.templates": {
+            "min": 1
+          },
+          "$.body.data.attributes.templates[*].*": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].id": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].title": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].category": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].message": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].queues": {
+            "min": 1
+          },
+          "$.body.data.attributes.templates[*].queues[*].*": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "A request to get chat data for veripark",
+      "providerState": "Chat data of veripark consumer exists",
+      "request": {
+        "method": "GET",
+        "path": "/actions/bcd/chat-template",
+        "query": "consumer=veripark"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "data": {
+            "type": "ChatTemplate",
+            "attributes": {
+              "templates": [
+                {
+                  "id": "3",
+                  "consumer": "veripark",
+                  "title": "title3",
+                  "category": "category3",
+                  "message": "message3",
+                  "queues": [
                     "queue4"
                   ]
                 }
               ]
             }
+          }
+        },
+        "matchingRules": {
+          "$.body.data.attributes.templates": {
+            "min": 1
+          },
+          "$.body.data.attributes.templates[*].*": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].id": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].title": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].category": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].message": {
+            "match": "type"
+          },
+          "$.body.data.attributes.templates[*].queues": {
+            "min": 1
+          },
+          "$.body.data.attributes.templates[*].queues[*].*": {
+            "match": "type"
           }
         }
       }
