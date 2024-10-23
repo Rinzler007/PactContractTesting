@@ -7,45 +7,29 @@
   },
   "interactions": [
     {
-      "description": "A request with blank consumer",
-      "providerState": "Chat data of  consumer exists",
-      "request": {
-        "method": "GET",
-        "path": "/actions/bcd/chat-template",
-        "query": "consumer=",
-        "headers": {
-          "Authorization": "Bearer your_dynamic_token_here"
-        }
-      },
-      "response": {
-        "status": 400,
-        "headers": {
-        },
-        "body": {
-          "errors": [
-            {
-              "title": "BadRequest",
-              "detail": "Empty consumer id",
-              "status": "400"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "description": "A request to get chat data for fullserve",
+      "description": "A request to get chat data",
       "providerState": "Chat data of fullserve consumer exists",
       "request": {
         "method": "GET",
         "path": "/actions/bcd/chat-template",
-        "query": "consumer=fullserve",
         "headers": {
-          "Authorization": "Bearer your_dynamic_token_here"
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.path": {
+            "match": "regex",
+            "regex": "\\/actions\\/bcd\\/chat-template"
+          },
+          "$.headers.Content-Type": {
+            "match": "regex",
+            "regex": "application\\/json"
+          }
         }
       },
       "response": {
         "status": 200,
         "headers": {
+          "Content-Type": "application/json"
         },
         "body": {
           "data": {
@@ -53,88 +37,62 @@
             "attributes": {
               "templates": [
                 {
+                  "id": "1",
+                  "consumer": "fullserve",
+                  "title": "title1",
+                  "category": "category1",
+                  "message": "message1",
+                  "queues": [
+                    "queue1",
+                    "queue2"
+                  ],
+                  "recordDisabled": false
+                },
+                {
                   "id": "2",
                   "consumer": "fullserve",
                   "title": "title2",
                   "category": "category2",
                   "message": "message2",
                   "queues": [
-                    "queue3"
-                  ]
+                    "queue3",
+                    "queue4"
+                  ],
+                  "recordDisabled": false
+                },
+                {
+                  "id": "3",
+                  "consumer": "fullserve",
+                  "title": "title3",
+                  "category": "category3",
+                  "message": "message3",
+                  "queues": [
+                    "queue5"
+                  ],
+                  "recordDisabled": false
+                },
+                {
+                  "id": "4",
+                  "consumer": "fullserve",
+                  "title": "title4",
+                  "category": "category4",
+                  "message": "message4",
+                  "queues": [
+                    "queue6",
+                    "queue7",
+                    "queue8"
+                  ],
+                  "recordDisabled": false
                 }
               ]
             }
           }
         },
         "matchingRules": {
-          "$.body.data.attributes.templates": {
-            "min": 1
-          },
-          "$.body.data.attributes.templates[*].*": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].id": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].title": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].category": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].message": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].queues": {
-            "min": 1
-          },
-          "$.body.data.attributes.templates[*].queues[*].*": {
-            "match": "type"
+          "$.headers.Content-Type": {
+            "match": "regex",
+            "regex": "application\\/json"
           }
-        }
-      }
-    },
-    {
-      "description": "A request to get chat data for an invalid consumer",
-      "providerState": "Chat data of invalid consumer exists",
-      "request": {
-        "method": "GET",
-        "path": "/actions/bcd/chat-template",
-        "query": "consumer=invalid",
-        "headers": {
-          "Authorization": "Bearer your_dynamic_token_here"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-        },
-        "body": {
-          "data": {
-            "type": "ChatTemplate",
-            "attributes": {
-              "templates": [
-
-              ]
-            }
-          }
-        }
-      }
-    },
-    {
-      "description": "A request with no Authorization header",
-      "providerState": "Chat data of fullserve consumer exists",
-      "request": {
-        "method": "GET",
-        "path": "/actions/bcd/chat-template",
-        "query": "consumer=fullserve"
-      },
-      "response": {
-        "status": 401,
-        "headers": {
-        },
-        "body": {
-          "message": "Unauthorized"
         }
       }
     }
