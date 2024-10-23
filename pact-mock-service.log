@@ -1,6 +1,71 @@
-I, [2024-10-14T11:51:20.170795 #68285]  INFO -- : Cleared interactions
-I, [2024-10-14T11:51:20.176869 #68285]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=fullserve
-D, [2024-10-14T11:51:20.177019 #68285] DEBUG -- : {
+I, [2024-10-23T09:39:09.213052 #34775]  INFO -- : Cleared interactions
+I, [2024-10-23T09:39:09.215483 #34775]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=
+D, [2024-10-23T09:39:09.215606 #34775] DEBUG -- : {
+  "description": "A request with blank consumer",
+  "providerState": "Chat data of  consumer exists",
+  "request": {
+    "method": "GET",
+    "path": "/actions/bcd/chat-template",
+    "query": {
+      "consumer": [
+        ""
+      ]
+    },
+    "headers": {
+      "Authorization": "Bearer your_dynamic_token_here"
+    }
+  },
+  "response": {
+    "status": 400,
+    "headers": {
+    },
+    "body": {
+      "errors": [
+        {
+          "title": "BadRequest",
+          "detail": "Empty consumer id",
+          "status": "400"
+        }
+      ]
+    }
+  },
+  "metadata": null
+}
+I, [2024-10-23T09:39:09.218252 #34775]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=
+D, [2024-10-23T09:39:09.218348 #34775] DEBUG -- : {
+  "path": "/actions/bcd/chat-template",
+  "query": "consumer=",
+  "method": "get",
+  "headers": {
+    "Host": "localhost:1235",
+    "User-Agent": "python-requests/2.32.3",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "Authorization": "Bearer your_dynamic_token_here",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2024-10-23T09:39:09.219100 #34775]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=
+D, [2024-10-23T09:39:09.219154 #34775] DEBUG -- : {
+  "status": 400,
+  "headers": {
+  },
+  "body": {
+    "errors": [
+      {
+        "title": "BadRequest",
+        "detail": "Empty consumer id",
+        "status": "400"
+      }
+    ]
+  }
+}
+I, [2024-10-23T09:39:09.221652 #34775]  INFO -- : Verifying - interactions matched
+I, [2024-10-23T09:39:09.223644 #34775]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
+I, [2024-10-23T09:39:09.226442 #34775]  INFO -- : Cleared interactions
+I, [2024-10-23T09:39:09.228787 #34775]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=fullserve
+D, [2024-10-23T09:39:09.228878 #34775] DEBUG -- : {
   "description": "A request to get chat data for fullserve",
   "providerState": "Chat data of fullserve consumer exists",
   "request": {
@@ -10,6 +75,9 @@ D, [2024-10-14T11:51:20.177019 #68285] DEBUG -- : {
       "consumer": [
         "fullserve"
       ]
+    },
+    "headers": {
+      "Authorization": "Bearer your_dynamic_token_here"
     }
   },
   "response": {
@@ -54,8 +122,8 @@ D, [2024-10-14T11:51:20.177019 #68285] DEBUG -- : {
   },
   "metadata": null
 }
-I, [2024-10-14T11:51:20.179857 #68285]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=fullserve
-D, [2024-10-14T11:51:20.179961 #68285] DEBUG -- : {
+I, [2024-10-23T09:39:09.230649 #34775]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=fullserve
+D, [2024-10-23T09:39:09.230709 #34775] DEBUG -- : {
   "path": "/actions/bcd/chat-template",
   "query": "consumer=fullserve",
   "method": "get",
@@ -65,11 +133,12 @@ D, [2024-10-14T11:51:20.179961 #68285] DEBUG -- : {
     "Accept-Encoding": "gzip, deflate",
     "Accept": "*/*",
     "Connection": "keep-alive",
+    "Authorization": "Bearer your_dynamic_token_here",
     "Version": "HTTP/1.1"
   }
 }
-I, [2024-10-14T11:51:20.180261 #68285]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=fullserve
-D, [2024-10-14T11:51:20.180339 #68285] DEBUG -- : {
+I, [2024-10-23T09:39:09.230862 #34775]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=fullserve
+D, [2024-10-23T09:39:09.230915 #34775] DEBUG -- : {
   "status": 200,
   "headers": {
   },
@@ -109,11 +178,11 @@ D, [2024-10-14T11:51:20.180339 #68285] DEBUG -- : {
     }
   }
 }
-I, [2024-10-14T11:51:20.182463 #68285]  INFO -- : Verifying - interactions matched
-I, [2024-10-14T11:51:20.185117 #68285]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
-I, [2024-10-14T11:51:20.188548 #68285]  INFO -- : Cleared interactions
-I, [2024-10-14T11:51:20.190766 #68285]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=invalid
-D, [2024-10-14T11:51:20.190820 #68285] DEBUG -- : {
+I, [2024-10-23T09:39:09.232552 #34775]  INFO -- : Verifying - interactions matched
+I, [2024-10-23T09:39:09.234144 #34775]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
+I, [2024-10-23T09:39:09.237750 #34775]  INFO -- : Cleared interactions
+I, [2024-10-23T09:39:09.239658 #34775]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=invalid
+D, [2024-10-23T09:39:09.239719 #34775] DEBUG -- : {
   "description": "A request to get chat data for an invalid consumer",
   "providerState": "Chat data of invalid consumer exists",
   "request": {
@@ -123,23 +192,30 @@ D, [2024-10-14T11:51:20.190820 #68285] DEBUG -- : {
       "consumer": [
         "invalid"
       ]
+    },
+    "headers": {
+      "Authorization": "Bearer your_dynamic_token_here"
     }
   },
   "response": {
-    "status": 404,
+    "status": 200,
     "headers": {
     },
     "body": {
-      "error": {
-        "code": 404,
-        "message": "Consumer not found."
+      "data": {
+        "type": "ChatTemplate",
+        "attributes": {
+          "templates": [
+
+          ]
+        }
       }
     }
   },
   "metadata": null
 }
-I, [2024-10-14T11:51:20.193200 #68285]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=invalid
-D, [2024-10-14T11:51:20.193268 #68285] DEBUG -- : {
+I, [2024-10-23T09:39:09.241264 #34775]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=invalid
+D, [2024-10-23T09:39:09.241313 #34775] DEBUG -- : {
   "path": "/actions/bcd/chat-template",
   "query": "consumer=invalid",
   "method": "get",
@@ -149,83 +225,56 @@ D, [2024-10-14T11:51:20.193268 #68285] DEBUG -- : {
     "Accept-Encoding": "gzip, deflate",
     "Accept": "*/*",
     "Connection": "keep-alive",
+    "Authorization": "Bearer your_dynamic_token_here",
     "Version": "HTTP/1.1"
   }
 }
-I, [2024-10-14T11:51:20.193369 #68285]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=invalid
-D, [2024-10-14T11:51:20.193405 #68285] DEBUG -- : {
-  "status": 404,
+I, [2024-10-23T09:39:09.241407 #34775]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=invalid
+D, [2024-10-23T09:39:09.241435 #34775] DEBUG -- : {
+  "status": 200,
   "headers": {
   },
   "body": {
-    "error": {
-      "code": 404,
-      "message": "Consumer not found."
+    "data": {
+      "type": "ChatTemplate",
+      "attributes": {
+        "templates": [
+
+        ]
+      }
     }
   }
 }
-I, [2024-10-14T11:51:20.195241 #68285]  INFO -- : Verifying - interactions matched
-I, [2024-10-14T11:51:20.197199 #68285]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
-I, [2024-10-14T11:51:20.200253 #68285]  INFO -- : Cleared interactions
-I, [2024-10-14T11:51:20.202828 #68285]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=salesforce
-D, [2024-10-14T11:51:20.202931 #68285] DEBUG -- : {
-  "description": "A request to get chat data for salesforce",
-  "providerState": "Chat data of salesforce consumer exists",
+I, [2024-10-23T09:39:09.242889 #34775]  INFO -- : Verifying - interactions matched
+I, [2024-10-23T09:39:09.244182 #34775]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
+I, [2024-10-23T09:39:09.245974 #34775]  INFO -- : Cleared interactions
+I, [2024-10-23T09:39:09.247300 #34775]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=fullserve
+D, [2024-10-23T09:39:09.247343 #34775] DEBUG -- : {
+  "description": "A request with no Authorization header",
+  "providerState": "Chat data of fullserve consumer exists",
   "request": {
     "method": "GET",
     "path": "/actions/bcd/chat-template",
     "query": {
       "consumer": [
-        "salesforce"
+        "fullserve"
       ]
     }
   },
   "response": {
-    "status": 200,
+    "status": 401,
     "headers": {
     },
     "body": {
-      "data": {
-        "type": "ChatTemplate",
-        "attributes": {
-          "templates": {
-            "json_class": "Pact::ArrayLike",
-            "contents": {
-              "id": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "4"
-              },
-              "consumer": "salesforce",
-              "title": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "title4"
-              },
-              "category": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "category4"
-              },
-              "message": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "message4"
-              },
-              "queues": {
-                "json_class": "Pact::ArrayLike",
-                "contents": "queue5",
-                "min": 1
-              }
-            },
-            "min": 1
-          }
-        }
-      }
+      "message": "Unauthorized"
     }
   },
   "metadata": null
 }
-I, [2024-10-14T11:51:20.204805 #68285]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=salesforce
-D, [2024-10-14T11:51:20.204865 #68285] DEBUG -- : {
+I, [2024-10-23T09:39:09.248557 #34775]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=fullserve
+D, [2024-10-23T09:39:09.248588 #34775] DEBUG -- : {
   "path": "/actions/bcd/chat-template",
-  "query": "consumer=salesforce",
+  "query": "consumer=fullserve",
   "method": "get",
   "headers": {
     "Host": "localhost:1235",
@@ -236,159 +285,14 @@ D, [2024-10-14T11:51:20.204865 #68285] DEBUG -- : {
     "Version": "HTTP/1.1"
   }
 }
-I, [2024-10-14T11:51:20.204997 #68285]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=salesforce
-D, [2024-10-14T11:51:20.205049 #68285] DEBUG -- : {
-  "status": 200,
+I, [2024-10-23T09:39:09.248667 #34775]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=fullserve
+D, [2024-10-23T09:39:09.248688 #34775] DEBUG -- : {
+  "status": 401,
   "headers": {
   },
   "body": {
-    "data": {
-      "type": "ChatTemplate",
-      "attributes": {
-        "templates": {
-          "json_class": "Pact::ArrayLike",
-          "contents": {
-            "id": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "4"
-            },
-            "consumer": "salesforce",
-            "title": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "title4"
-            },
-            "category": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "category4"
-            },
-            "message": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "message4"
-            },
-            "queues": {
-              "json_class": "Pact::ArrayLike",
-              "contents": "queue5",
-              "min": 1
-            }
-          },
-          "min": 1
-        }
-      }
-    }
+    "message": "Unauthorized"
   }
 }
-I, [2024-10-14T11:51:20.206515 #68285]  INFO -- : Verifying - interactions matched
-I, [2024-10-14T11:51:20.208095 #68285]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
-I, [2024-10-14T11:51:20.210966 #68285]  INFO -- : Cleared interactions
-I, [2024-10-14T11:51:20.212677 #68285]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template?consumer=veripark
-D, [2024-10-14T11:51:20.212737 #68285] DEBUG -- : {
-  "description": "A request to get chat data for veripark",
-  "providerState": "Chat data of veripark consumer exists",
-  "request": {
-    "method": "GET",
-    "path": "/actions/bcd/chat-template",
-    "query": {
-      "consumer": [
-        "veripark"
-      ]
-    }
-  },
-  "response": {
-    "status": 200,
-    "headers": {
-    },
-    "body": {
-      "data": {
-        "type": "ChatTemplate",
-        "attributes": {
-          "templates": {
-            "json_class": "Pact::ArrayLike",
-            "contents": {
-              "id": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "3"
-              },
-              "consumer": "veripark",
-              "title": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "title3"
-              },
-              "category": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "category3"
-              },
-              "message": {
-                "json_class": "Pact::SomethingLike",
-                "contents": "message3"
-              },
-              "queues": {
-                "json_class": "Pact::ArrayLike",
-                "contents": "queue4",
-                "min": 1
-              }
-            },
-            "min": 1
-          }
-        }
-      }
-    }
-  },
-  "metadata": null
-}
-I, [2024-10-14T11:51:20.214421 #68285]  INFO -- : Received request GET /actions/bcd/chat-template?consumer=veripark
-D, [2024-10-14T11:51:20.214466 #68285] DEBUG -- : {
-  "path": "/actions/bcd/chat-template",
-  "query": "consumer=veripark",
-  "method": "get",
-  "headers": {
-    "Host": "localhost:1235",
-    "User-Agent": "python-requests/2.32.3",
-    "Accept-Encoding": "gzip, deflate",
-    "Accept": "*/*",
-    "Connection": "keep-alive",
-    "Version": "HTTP/1.1"
-  }
-}
-I, [2024-10-14T11:51:20.214557 #68285]  INFO -- : Found matching response for GET /actions/bcd/chat-template?consumer=veripark
-D, [2024-10-14T11:51:20.214600 #68285] DEBUG -- : {
-  "status": 200,
-  "headers": {
-  },
-  "body": {
-    "data": {
-      "type": "ChatTemplate",
-      "attributes": {
-        "templates": {
-          "json_class": "Pact::ArrayLike",
-          "contents": {
-            "id": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "3"
-            },
-            "consumer": "veripark",
-            "title": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "title3"
-            },
-            "category": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "category3"
-            },
-            "message": {
-              "json_class": "Pact::SomethingLike",
-              "contents": "message3"
-            },
-            "queues": {
-              "json_class": "Pact::ArrayLike",
-              "contents": "queue4",
-              "min": 1
-            }
-          },
-          "min": 1
-        }
-      }
-    }
-  }
-}
-I, [2024-10-14T11:51:20.216109 #68285]  INFO -- : Verifying - interactions matched
-I, [2024-10-14T11:51:20.217585 #68285]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
+I, [2024-10-23T09:39:09.249740 #34775]  INFO -- : Verifying - interactions matched
+I, [2024-10-23T09:39:09.250873 #34775]  INFO -- : Writing pact for unv-bcd-chat-pdr to ./pacts/toolbar-chat-api-unv-bcd-chat-pdr.json

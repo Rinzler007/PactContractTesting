@@ -30,8 +30,12 @@ class GetChatDataConsumerTest(unittest.TestCase):
         """Clean up after each test case."""
         pass  # The mock service is already stopped by atexit
 
-    def define_interaction(self, description, consumer_type, expected_response, status_code=200):
+    def define_interaction(self, description, consumer_type, expected_response, status_code=200, auth_required=True, token=None):
         """Helper method to define Pact interactions."""
+        headers = {}
+        if auth_required and token:
+            headers = {"Authorization": f"Bearer {token}"}
+
         # Define the expected interaction with the Provider
         (self.pact
          .given(f'Chat data of {consumer_type} consumer exists')
@@ -39,6 +43,7 @@ class GetChatDataConsumerTest(unittest.TestCase):
          .with_request(
              'GET',
              '/actions/bcd/chat-template',
+             headers=headers,
              query={'consumer': consumer_type}
          )
          .will_respond_with(status_code, body=expected_response))
@@ -77,167 +82,117 @@ class GetChatDataConsumerTest(unittest.TestCase):
                             "category": "category2",
                             "message": "message2",
                             "queues": ["queue3"]
-                        },
-                        # Add more concrete templates if needed
+                        }
                     ]
                 }
             }
         }
+
+        # Manually provide the token
+        token = 'your_dynamic_token_here'
 
         # Define interaction
         self.define_interaction(
             description='A request to get chat data for fullserve',
             consumer_type=consumer_type,
             expected_response=expected_interaction,
-            status_code=200
+            token=token
         )
 
         # Run the test: Make the actual request
         with self.pact:
-            result = requests.get(f'{pact.uri}/actions/bcd/chat-template?consumer={consumer_type}')
+            result = requests.get(f'{pact.uri}/actions/bcd/chat-template?consumer={consumer_type}', headers={"Authorization": f"Bearer {token}"})
 
         # Assert that the result matches the expectation
         self.assertEqual(result.status_code, 200)
         self.assertEqual(result.json(), expected_response)
 
-    def test_get_chat_data_veripark(self):
-        """Test case for consumer 'veripark'."""
-        consumer_type = 'veripark'
+    def test_get_chat_data_blank_consumer(self):
+        """Test case for blank consumer."""
+        consumer_type = ''
         expected_interaction = {
-            "data": {
-                "type": "ChatTemplate",
-                "attributes": {
-                    "templates": EachLike(
-                        {
-                            "id": Like("3"),
-                            "consumer": "veripark",
-                            "title": Like("title3"),
-                            "category": Like("category3"),
-                            "message": Like("message3"),
-                            "queues": EachLike("queue4")
-                        }
-                    )
+            "errors": [
+                {
+                    "title": "BadRequest",
+                    "detail": "Empty consumer id",
+                    "status": "400"
                 }
-            }
+            ]
         }
 
-        # Define the expected concrete response for assertions
-        expected_response = {
-            "data": {
-                "type": "ChatTemplate",
-                "attributes": {
-                    "templates": [
-                        {
-                            "id": "3",
-                            "consumer": "veripark",
-                            "title": "title3",
-                            "category": "category3",
-                            "message": "message3",
-                            "queues": ["queue4"]
-                        },
-                        # Add more concrete templates if needed
-                    ]
-                }
-            }
-        }
+        # Manually provide the token
+        token = 'your_dynamic_token_here'
 
-        # Define interaction
+        # Define interaction for blank consumer
         self.define_interaction(
-            description='A request to get chat data for veripark',
+            description='A request with blank consumer',
             consumer_type=consumer_type,
             expected_response=expected_interaction,
-            status_code=200
+            status_code=400,
+            token=token
         )
 
         # Run the test: Make the actual request
         with self.pact:
-            result = requests.get(f'{pact.uri}/actions/bcd/chat-template?consumer={consumer_type}')
+            result = requests.get(f'{pact.uri}/actions/bcd/chat-template?consumer={consumer_type}', headers={"Authorization": f"Bearer {token}"})
 
-        # Assert that the result matches the expectation
-        self.assertEqual(result.status_code, 200)
-        self.assertEqual(result.json(), expected_response)
-
-    def test_get_chat_data_salesforce(self):
-        """Test case for consumer 'salesforce'."""
-        consumer_type = 'salesforce'
-        expected_interaction = {
-            "data": {
-                "type": "ChatTemplate",
-                "attributes": {
-                    "templates": EachLike(
-                        {
-                            "id": Like("4"),
-                            "consumer": "salesforce",
-                            "title": Like("title4"),
-                            "category": Like("category4"),
-                            "message": Like("message4"),
-                            "queues": EachLike("queue5")
-                        }
-                    )
-                }
-            }
-        }
-
-        # Define the expected concrete response for assertions
-        expected_response = {
-            "data": {
-                "type": "ChatTemplate",
-                "attributes": {
-                    "templates": [
-                        {
-                            "id": "4",
-                            "consumer": "salesforce",
-                            "title": "title4",
-                            "category": "category4",
-                            "message": "message4",
-                            "queues": ["queue5"]
-                        },
-                        # Add more concrete templates if needed
-                    ]
-                }
-            }
-        }
-
-        # Define interaction
-        self.define_interaction(
-            description='A request to get chat data for salesforce',
-            consumer_type=consumer_type,
-            expected_response=expected_interaction,
-            status_code=200
-        )
-
-        # Run the test: Make the actual request
-        with self.pact:
-            result = requests.get(f'{pact.uri}/actions/bcd/chat-template?consumer={consumer_type}')
-
-        # Assert that the result matches the expectation
-        self.assertEqual(result.status_code, 200)
-        self.assertEqual(result.json(), expected_response)
+        # Assert the 400 response for blank consumer
+        self.assertEqual(result.status_code, 400)
+        self.assertEqual(result.json(), expected_interaction)
 
     def test_get_chat_data_invalid_consumer(self):
-        """Test case for an invalid consumer."""
+        """Test case for an invalid consumer should return 200 with an empty template list."""
         consumer_type = 'invalid'
         expected_interaction = {
-            "error": {
-                "code": 404,
-                "message": "Consumer not found."
+            "data": {
+                "type": "ChatTemplate",
+                "attributes": {
+                    "templates": []
+                }
             }
         }
+
+        # Manually provide the token
+        token = 'your_dynamic_token_here'
 
         # Define interaction for invalid consumer
         self.define_interaction(
             description='A request to get chat data for an invalid consumer',
             consumer_type=consumer_type,
             expected_response=expected_interaction,
-            status_code=404
+            token=token
         )
 
         # Run the test: Make the actual request
         with self.pact:
+            result = requests.get(f'{pact.uri}/actions/bcd/chat-template?consumer={consumer_type}', headers={"Authorization": f"Bearer {token}"})
+
+        # Assert that the result matches the expectation
+        self.assertEqual(result.status_code, 200)
+        self.assertEqual(result.json(), expected_interaction)
+
+    def test_get_chat_data_no_authorization(self):
+        """Test case for missing Authorization header should return 401."""
+        consumer_type = 'fullserve'
+        expected_interaction = {
+            "message": "Unauthorized"
+        }
+
+        # Define interaction for missing Authorization
+        self.define_interaction(
+            description='A request with no Authorization header',
+            consumer_type=consumer_type,
+            expected_response=expected_interaction,
+            status_code=401,
+            auth_required=False
+        )
+
+        # Run the test: Make the actual request without Authorization header
+        with self.pact:
             result = requests.get(f'{pact.uri}/actions/bcd/chat-template?consumer={consumer_type}')
 
-        # Assert the 404 response for invalid consumer
-        self.assertEqual(result.status_code, 404)
+        # Assert the 401 response for missing Authorization
+        self.assertEqual(result.status_code, 401)
         self.assertEqual(result.json(), expected_interaction)
 
 

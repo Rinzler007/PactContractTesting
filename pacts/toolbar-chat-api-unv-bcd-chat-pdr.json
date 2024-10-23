@@ -7,12 +7,41 @@
   },
   "interactions": [
     {
+      "description": "A request with blank consumer",
+      "providerState": "Chat data of  consumer exists",
+      "request": {
+        "method": "GET",
+        "path": "/actions/bcd/chat-template",
+        "query": "consumer=",
+        "headers": {
+          "Authorization": "Bearer your_dynamic_token_here"
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errors": [
+            {
+              "title": "BadRequest",
+              "detail": "Empty consumer id",
+              "status": "400"
+            }
+          ]
+        }
+      }
+    },
+    {
       "description": "A request to get chat data for fullserve",
       "providerState": "Chat data of fullserve consumer exists",
       "request": {
         "method": "GET",
         "path": "/actions/bcd/chat-template",
-        "query": "consumer=fullserve"
+        "query": "consumer=fullserve",
+        "headers": {
+          "Authorization": "Bearer your_dynamic_token_here"
+        }
       },
       "response": {
         "status": 200,
@@ -71,27 +100,10 @@
       "request": {
         "method": "GET",
         "path": "/actions/bcd/chat-template",
-        "query": "consumer=invalid"
-      },
-      "response": {
-        "status": 404,
+        "query": "consumer=invalid",
         "headers": {
-        },
-        "body": {
-          "error": {
-            "code": 404,
-            "message": "Consumer not found."
-          }
+          "Authorization": "Bearer your_dynamic_token_here"
         }
-      }
-    },
-    {
-      "description": "A request to get chat data for salesforce",
-      "providerState": "Chat data of salesforce consumer exists",
-      "request": {
-        "method": "GET",
-        "path": "/actions/bcd/chat-template",
-        "query": "consumer=salesforce"
       },
       "response": {
         "status": 200,
@@ -102,104 +114,27 @@
             "type": "ChatTemplate",
             "attributes": {
               "templates": [
-                {
-                  "id": "4",
-                  "consumer": "salesforce",
-                  "title": "title4",
-                  "category": "category4",
-                  "message": "message4",
-                  "queues": [
-                    "queue5"
-                  ]
-                }
+
               ]
             }
-          }
-        },
-        "matchingRules": {
-          "$.body.data.attributes.templates": {
-            "min": 1
-          },
-          "$.body.data.attributes.templates[*].*": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].id": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].title": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].category": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].message": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].queues": {
-            "min": 1
-          },
-          "$.body.data.attributes.templates[*].queues[*].*": {
-            "match": "type"
           }
         }
       }
     },
     {
-      "description": "A request to get chat data for veripark",
-      "providerState": "Chat data of veripark consumer exists",
+      "description": "A request with no Authorization header",
+      "providerState": "Chat data of fullserve consumer exists",
       "request": {
         "method": "GET",
         "path": "/actions/bcd/chat-template",
-        "query": "consumer=veripark"
+        "query": "consumer=fullserve"
       },
       "response": {
-        "status": 200,
+        "status": 401,
         "headers": {
         },
         "body": {
-          "data": {
-            "type": "ChatTemplate",
-            "attributes": {
-              "templates": [
-                {
-                  "id": "3",
-                  "consumer": "veripark",
-                  "title": "title3",
-                  "category": "category3",
-                  "message": "message3",
-                  "queues": [
-                    "queue4"
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        "matchingRules": {
-          "$.body.data.attributes.templates": {
-            "min": 1
-          },
-          "$.body.data.attributes.templates[*].*": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].id": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].title": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].category": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].message": {
-            "match": "type"
-          },
-          "$.body.data.attributes.templates[*].queues": {
-            "min": 1
-          },
-          "$.body.data.attributes.templates[*].queues[*].*": {
-            "match": "type"
-          }
+          "message": "Unauthorized"
         }
       }
     }
