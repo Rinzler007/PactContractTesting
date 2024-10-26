@@ -1,5 +1,5 @@
-I, [2024-10-23T12:58:58.268397 #51904]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
-D, [2024-10-23T12:58:58.268516 #51904] DEBUG -- : {
+I, [2024-10-23T16:14:16.377542 #80186]  INFO -- : Registered expected interaction GET /actions/bcd/chat-template
+D, [2024-10-23T16:14:16.377670 #80186] DEBUG -- : {
   "description": "A request to get chat data",
   "providerState": "Chat data of fullserve consumer exists",
   "request": {
@@ -104,20 +104,20 @@ D, [2024-10-23T12:58:58.268516 #51904] DEBUG -- : {
   },
   "metadata": null
 }
-I, [2024-10-23T12:58:58.268957 #51904]  INFO -- : Received request GET /actions/bcd/chat-template
-D, [2024-10-23T12:58:58.268992 #51904] DEBUG -- : {
+I, [2024-10-23T16:14:16.378161 #80186]  INFO -- : Received request GET /actions/bcd/chat-template
+D, [2024-10-23T16:14:16.378212 #80186] DEBUG -- : {
   "path": "/actions/bcd/chat-template",
   "query": "",
   "method": "get",
   "headers": {
     "Content-Type": "application/json",
-    "Host": "localhost:54551",
+    "Host": "localhost:53061",
     "User-Agent": "Go-http-client/1.1",
     "Accept-Encoding": "gzip"
   }
 }
-I, [2024-10-23T12:58:58.269083 #51904]  INFO -- : Found matching response for GET /actions/bcd/chat-template
-D, [2024-10-23T12:58:58.269124 #51904] DEBUG -- : {
+I, [2024-10-23T16:14:16.378335 #80186]  INFO -- : Found matching response for GET /actions/bcd/chat-template
+D, [2024-10-23T16:14:16.378384 #80186] DEBUG -- : {
   "status": 200,
   "headers": {
     "Content-Type": {
@@ -190,6 +190,6 @@ D, [2024-10-23T12:58:58.269124 #51904] DEBUG -- : {
     }
   }
 }
-I, [2024-10-23T12:58:58.269933 #51904]  INFO -- : Verifying - interactions matched
-I, [2024-10-23T12:58:58.270288 #51904]  INFO -- : Cleared interactions
-I, [2024-10-23T12:58:59.409365 #51904]  INFO -- : Writing pact for unv-bcd-chat-pdr to /Users/harshdas/Desktop/Rinzler/Projects/GoConsumerContractTesting/pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
+I, [2024-10-23T16:14:16.379414 #80186]  INFO -- : Verifying - interactions matched
+I, [2024-10-23T16:14:16.379879 #80186]  INFO -- : Cleared interactions
+I, [2024-10-23T16:14:17.290695 #80186]  INFO -- : Writing pact for unv-bcd-chat-pdr to /Users/harshdas/Desktop/Rinzler/Projects/GoConsumerContractTesting/pacts/toolbar-chat-api-unv-bcd-chat-pdr.json
